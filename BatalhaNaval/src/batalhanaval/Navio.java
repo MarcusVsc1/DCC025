@@ -1,3 +1,5 @@
+//objeto Navio. Dependendo do parametro passado no construtor, vai criar um navio com tamanho e tipo diferente.
+
 package batalhanaval;
 
 public class Navio {

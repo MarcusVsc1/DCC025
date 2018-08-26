@@ -1,3 +1,4 @@
+//Objeto Jogador. 
 package batalhanaval;
 
 import java.util.Scanner;
@@ -7,6 +8,8 @@ public final class Jogador {
     Navio b1[];
     String nome;
     int naviosOk = 4;
+//Construtor. Vai conter quatro navios, de tamanho 1 a 4, nome e quantidade de navios ainda no jogo, como se fosse um contador de vidas.
+//cada jogador vai ter um mapa 6x6 em que os navios serao incluidos.
     public Jogador(){
         mapa = new int[6][6];
         for(int i = 0;i<6;i++){
@@ -29,6 +32,7 @@ public final class Jogador {
             System.out.println("||");
         }
     }
+//metodo do palpite. Verifica se o x e y passados sao validos e, caso sejam, verifica se o ha navio, se foi antigido, quantidade de vidas, etc.
     public boolean palpitar(){
         boolean ok = false;
         int x;
@@ -64,6 +68,7 @@ public final class Jogador {
         }
         return naviosOk==0;
     }
+//metodo para insercao dos navios que eh chamado no construtor.
     public void posicaoNavio(){
         for(int i = 0;i<4;i++){
             boolean ok = false;
@@ -83,6 +88,7 @@ public final class Jogador {
             }
         }
     }
+//metodo auxiliar que eh chamado pelo metodo de insercao. verifica se a posicao eh valida.
     public boolean verificaPosicao(int x, int y, int i){
         if(x<0 || x>5 || y<0 || y>5){
             return false;
@@ -101,6 +107,8 @@ public final class Jogador {
         }
         return true;
     }
+// outro metodo auxiliar que verifica se a direcao do navio eh valida. Se negativo, verifica em sentido horario, comecando pela direcao indicada pelo
+//jogador. Se nenhuma posicao for valida, pede outras coordenadas.
     public boolean viavel(int x, int y, int i, int dir,int t){
         if(t==4){
             return false;
@@ -163,6 +171,8 @@ public final class Jogador {
         }
         return true;
     }
+//metodo para imprimir os dados de cada jogador quando iniciar a sua rodada. imprime SOMENTE os dados dos navios em combate - os afundados nao tem seus
+//dados impressos.
     public void imprimeInfo(){
         System.out.println("Jogador "+nome);
         System.out.println("Navios ainda em combate: "+naviosOk);

@@ -1,6 +1,7 @@
 package aula3108;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -8,63 +9,73 @@ import java.util.ArrayList;
  */
 public class Dado {
     private int roll;
-    ArrayList vet;
-    public String retornaDado(int n){
-        switch(n){
+    private String face;
+    public void rolaDado(){
+        Random n = new Random();
+        int x = n.nextInt(5);
+        roll = x;
+        switch(x){
+            case 0:
+                face= "***************\n"+
+                       "*             *\n"+
+                       "*             *\n"+
+                       "*      *      *\n"+
+                       "*             *\n"+
+                       "*             *\n"+
+                       "***************";
+                break;
             case 1:
-                return "***************\n"+
+                face = "***************\n"+
                        "*             *\n"+
+                       "*  *          *\n"+
                        "*             *\n"+
-                       "*      *      *\n"+
-                       "*             *\n"+
+                       "*          *  *\n"+
                        "*             *\n"+
                        "***************";
+                break;
             case 2:
-                return "***************\n"+
-                       "*             *\n"+
+                face = "***************\n"+
                        "*  *          *\n"+
                        "*             *\n"+
-                       "*          *  *\n"+
+                       "*      *      *\n"+
                        "*             *\n"+
+                       "*          *  *\n"+
                        "***************";
+                break;
             case 3:
-                return "***************\n"+
-                       "*  *          *\n"+
+                face = "***************\n"+
                        "*             *\n"+
-                       "*      *      *\n"+
+                       "*   *     *   *\n"+
                        "*             *\n"+
-                       "*          *  *\n"+
+                       "*   *     *   *\n"+
+                       "*             *\n"+
                        "***************";
+                break;
             case 4:
-                return "***************\n"+
-                       "*             *\n"+
-                       "*   *     *   *\n"+
-                       "*             *\n"+
-                       "*   *     *   *\n"+
-                       "*             *\n"+
-                       "***************";
-            case 5:
-                return "***************\n"+
+                face = "***************\n"+
                        "*  *       *  *\n"+
                        "*             *\n"+
                        "*      *      *\n"+
                        "*             *\n"+
                        "*  *       *  *\n"+
                        "***************";
-            case 6:
-                return "***************\n"+
+                break;
+            case 5:
+                face = "***************\n"+
                        "*   *     *   *\n"+
                        "*             *\n"+
                        "*   *     *   *\n"+
                        "*             *\n"+
                        "*   *     *   *\n"+
                        "***************";
+                break;
             default:
-                return "0";
-                
-                
-                
+                break;          
         }
+    }
+
+    public String getFace() {
+        return face;
     }
     
     public void rolarDado(){

@@ -16,7 +16,7 @@ import java.util.Random;
  */
 public class Bozo {
     public Jogador jogadores[];
-    Dado dice;
+    
     int numJog;
 
     public Bozo() {
@@ -41,16 +41,21 @@ public class Bozo {
         boolean win = false;
         int i = 0;
         Random gerador = new Random();
-        while(!win){
-            System.out.println("Jogador "+jogadores[i].getNome());
-            jogadores[i].lancarDados();
+        for(int z = 0; z<10; z++){
+            while(i<numJog){
+                System.out.println("Jogador "+jogadores[i].getNome());
+                jogadores[i].lancarDados(0, true);
+            
             
             
             i++;
-            if(i == 6){
-                i=0;
             }
+            if(win){
+                break;
+            }
+            i=0;
         }
-        
+            
+               
     }
 }
